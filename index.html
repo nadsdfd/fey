@@ -4,160 +4,145 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>For You My Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #b57edc, #d8b4f8, #f3d9fa);
-      color: #4a148c;
+      font-family: 'Dancing Script', cursive;
+      background: lavender;
+      color: #4b2e83;
       text-align: center;
     }
-
     header {
-      background: #b57edc;
-      padding: 15px;
-      color: white;
-      font-size: 24px;
-    }
-
-    header .hearts {
-      font-size: 26px;
-      margin-right: 10px;
-    }
-
-    nav {
-      margin-top: 10px;
-    }
-
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      color: #6a0dad;
-      cursor: pointer;
-    }
-
-    nav a:hover {
-      color: #4a148c;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 30px auto;
-      background: #fff;
       padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      font-size: 2em;
     }
-
-    input {
+    .hearts {
+      font-size: 2em;
+      color: red;
+    }
+    .container {
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      max-width: 600px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    input[type=password] {
       padding: 10px;
       border-radius: 8px;
-      border: 1px solid #b57edc;
-      width: 200px;
-      margin-right: 10px;
+      border: 1px solid #aaa;
+      width: 60%;
+      font-size: 1em;
     }
-
     button {
-      padding: 10px 20px;
-      background: #b57edc;
-      color: white;
+      padding: 10px 15px;
+      margin-top: 10px;
       border: none;
       border-radius: 8px;
+      background: #a64ca6;
+      color: white;
       cursor: pointer;
+      font-size: 1em;
     }
-
     button:hover {
-      background: #9c4dcc;
+      background: #8a2be2;
     }
-
+    h2 {
+      color: #6a0dad;
+    }
+    audio {
+      margin: 10px 0;
+      width: 100%;
+    }
     .hidden {
       display: none;
-    }
-
-    img {
-      max-width: 250px;
-      margin-top: 15px;
-    }
-
-    audio {
-      margin-top: 15px;
     }
   </style>
 </head>
 <body>
-  <!-- HEADER -->
   <header>
-    <span class="hearts">💜💜💜</span>
+    <div class="hearts">💜 💜 💜</div>
     Welcome my love, enjoy your stay
-    <nav>
-      <a onclick="showSection('letter')">Love Letter</a>
-      <a onclick="showSection('music')">Music</a>
-      <a onclick="showSection('notes')">Notes</a>
-      <a onclick="showSection('gallery')">Gallery</a>
-    </nav>
   </header>
 
-<!-- PASSWORD INPUT -->
-<div class="container">
-  <label for="secret">Enter the secret code</label>
-  <input type="password" id="secret" placeholder="Enter password...">
-  <button onclick="checkPassword()">Open</button>
-</div>
+  <!-- PASSWORD INPUT -->
+  <div class="container" id="password-box">
+    <p>Enter the secret code</p>
+    <input type="password" id="secret" placeholder="****">
+    <br>
+    <button onclick="checkPassword()">Open</button>
+  </div>
 
-
-  <!-- LOVE LETTER -->
+  <!-- LETTER -->
   <div class="container hidden" id="letter">
-    <h2>My Dearest — A Letter For You</h2>
+    <h2>Hi Lovey 💌</h2>
     <p>
-      hi lovey i know lately its been hard for both of us pero u still choose me always :<br><br>
-      thank you for never giving up on us kahit na may mga times na parang ang bigat at ang hirap. i know i’m not perfect and i make mistakes, but you still choose to stay, to understand, and to love me. that means so much to me more than i can ever put into words.<br><br>
-      ikaw yung safe place ko, the one i want to run to no matter what happens. kahit anong hirap, kahit ilang tampuhan, ikaw at ikaw pa rin yung pipiliin ko. i promise to love you through the hard days, celebrate with you on the good days, and hold on to you every single day in between.<br><br>
-      mahal na mahal kita, always and forever. 💕
+      Hi lovey, I know lately it’s been hard for both of us pero u still choose me always :&lt;  
+      Thank you for never giving up on us kahit na may mga times na parang ang bigat at ang hirap.  
+      I know I’m not perfect and I make mistakes, but you still choose to stay, to understand, and to love me.  
+      That means so much to me more than I can ever put into words.  
+    </p>
+    <p>
+      Ikaw yung safe place ko, the one I want to run to no matter what happens.  
+      Kahit anong hirap, kahit ilang tampuhan, ikaw at ikaw pa rin yung pipiliin ko.  
+      I promise to love you through the hard days, celebrate with you on the good days, and hold on to you every single day in between.  
+    </p>
+    <p>
+      Mahal na mahal kita, always and forever. 💕
     </p>
   </div>
 
   <!-- MUSIC -->
   <div class="container hidden" id="music">
-    <h2>Our Song 🎶</h2>
-    <audio controls>
-      <source src="assets/song.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
+    <h2>🎶 Our Songs 🎶</h2>
+
+    <!-- Hidden Background Music -->
+    <audio id="bg-music" autoplay loop class="hidden">
+      <source src="songs/pag-ibig-ikaw-at-ako.mp3" type="audio/mpeg">
     </audio>
-    <p>Museo – Pag-ibig Na Ikaw at Ako (Earl Agustin)</p>
-  </div>
 
-  <!-- NOTES -->
-  <div class="container hidden" id="notes">
-    <h2>Notes for You 💌</h2>
-    <ul>
-      <li>take care always sa work galingan mo :></li>
-      <li>eat on time kahit not on time basta pakabusog lagi</li>
-      <li>you're mine &lt;3</li>
-    </ul>
-  </div>
-
-  <!-- GALLERY -->
-  <div class="container hidden" id="gallery">
-    <h2>Your Flower 🌸</h2>
-    <img src="assets/purple-daisy.png" alt="Purple Daisy">
+    <h3>Playlist</h3>
+    <audio controls>
+      <source src="songs/pag-ibig-ikaw-at-ako.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls>
+      <source src="songs/museo.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls>
+      <source src="songs/kusapiling-b.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls>
+      <source src="songs/dito-ka-sakin.mp3" type="audio/mpeg">
+    </audio>
   </div>
 
   <script>
     function checkPassword() {
-      const pass = document.getElementById("password").value;
-      if (pass === "luvleyfey") {
-        document.getElementById("loginBox").classList.add("hidden");
-        document.getElementById("letter").classList.remove("hidden");
-      } else {
-        alert("Wrong code! Try again 💜");
-      }
-    }
+      const input = document.getElementById('secret').value;
+      const password = "luvleyfey"; // secret code
 
-    function showSection(section) {
-      const sections = ["letter","music","notes","gallery"];
-      sections.forEach(s => document.getElementById(s).classList.add("hidden"));
-      document.getElementById(section).classList.remove("hidden");
+      if (input === password) {
+        document.getElementById('password-box').classList.add('hidden');
+        document.getElementById('letter').classList.remove('hidden');
+        document.getElementById('music').classList.remove('hidden');
+
+        // Fade-in background music
+        const bgMusic = document.getElementById('bg-music');
+        bgMusic.volume = 0; 
+        bgMusic.play();
+
+        let fadeIn = setInterval(() => {
+          if (bgMusic.volume < 1) {
+            bgMusic.volume = Math.min(bgMusic.volume + 0.05, 1);
+          } else {
+            clearInterval(fadeIn);
+          }
+        }, 300); // fade in every 300ms
+      } else {
+        alert("Wrong password! Try again 💜");
+      }
     }
   </script>
 </body>
